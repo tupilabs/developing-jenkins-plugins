@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bibliography>
+	<title>Bibliography</title>
+	
+	<biblioentry>
+		<abbrev>JenkinsCI</abbrev>
+		<title><ulink url="http://www.jenkins-ci.org/">Jenkins-CI</ulink></title>
+		<copyright><year>2011</year><holder>Jenkins-CI</holder></copyright>
+	</biblioentry>
+	
+</bibliography>

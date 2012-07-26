@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookinfo>
+
+    <productname>Developing Jenkins Plugins</productname>
+
+	<abstract>
+		<para>This book contains examples, tips, best practices and other 
+		useful resource for Jenkins plugin developers.
+		</para>
+		<para>
+	    <mediaobject>
+	      <imageobject role="html">
+	        <imagedata 
+	            align="center" 
+	            contentwidth="350px" 
+	            fileref="../media/jenkins_logo.png" 
+	            format="PNG">
+	        </imagedata>
+	      </imageobject>
+	    </mediaobject>
+	  </para>
+	</abstract>
+
+	<author>
+		<firstname>Bruno</firstname>
+		<othername>P.</othername>
+		<surname>Kinoshita</surname>
+		<email>kinow@apache.org</email>
+	</author>
+
+    <pubsnumber>1</pubsnumber>
+
+</bookinfo>

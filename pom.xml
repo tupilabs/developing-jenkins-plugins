@@ -1,0 +1,140 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.tupilabs</groupId>
+	<artifactId>developing-jenkins-plugins</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Developing Jenkins Plugins</name>
+
+	<description>A Docbook with tips and examples for developing Jenkins plug-ins.</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<inceptionYear>2012</inceptionYear>
+
+	<developers>
+		<developer>
+			<id>kinow</id>
+			<name>Bruno P. Kinoshita</name>
+			<email>kinow@apache.org</email>
+			<timezone>-3</timezone>
+			<roles>
+				<role>Author</role>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/tupilabs/developing-jenkins-plugins.git</connection>
+		<developerConnection>scm:git:git@github.com:tupilabs/developing-jenkins-plugins.git</developerConnection>
+		<url>http://github.com/tupilabs/developing-jenkins-plugins.git</url>
+	</scm>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.agilejava.docbkx</groupId>
+				<artifactId>docbkx-maven-plugin</artifactId>
+				<version>2.0.11</version>
+				<executions>
+					<execution>
+						<id>book-output</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate-pdf</goal>
+							<goal>generate-html</goal>
+							<!-- goal>generate-manpages</goal -->
+							<goal>generate-eclipse</goal>
+						</goals>
+						<configuration>
+							<draftMode>no</draftMode>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<sourceDirectory>${basedir}/src/main/book/en/</sourceDirectory>
+					<includes>book.xml</includes>
+					<generatedSourceDirectory>${project.build.directory}/book/generated/en</generatedSourceDirectory>
+					<xincludeSupported>true</xincludeSupported>
+					<highlightSource>1</highlightSource>
+					<!-- paperType>A4</paperType -->
+					<fop1Extensions>1</fop1Extensions>
+					<foCustomization>src/main/book/stylesheets/style.xsl</foCustomization>
+					<targetDirectory>${project.build.directory}/book/en/</targetDirectory>
+					<postProcess>
+						<copy todir="${basedir}/target/book/media">
+							<fileset dir="${basedir}/src/main/book/media/">
+								<include name="**/*.css" />
+								<include name="**/*.png" />
+								<include name="**/*.gif" />
+								<include name="**/*.jpg" />
+							</fileset>
+						</copy>
+					</postProcess>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.docbook</groupId>
+						<artifactId>docbook-xml</artifactId>
+						<version>4.4</version>
+						<type>pom</type>
+						<scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<groupId>net.sf.offo</groupId>
+						<artifactId>fop-hyph</artifactId>
+						<version>1.2</version>
+						<type>jar</type>
+						<scope>runtime</scope>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											com.agilejava.docbkx
+										</groupId>
+										<artifactId>
+											docbkx-maven-plugin
+										</artifactId>
+										<versionRange>
+											[2.0.11,)
+										</versionRange>
+										<goals>
+											<goal>
+												generate-eclipse
+											</goal>
+											<goal>generate-pdf</goal>
+											<goal>generate-html</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
